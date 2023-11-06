@@ -44,6 +44,7 @@ class Block {
         let self = this;
         return new Promise((resolve, reject) => {
             const originalHash = self.hash; // Assuming `hash` is the original hash of the block.
+            let clonedBlock = {...self, hash:null};
             const currentHash = SHA256(JSON.stringify(clonedBlock)).toString(); 
 
             if (originalHash === currentHash) {
